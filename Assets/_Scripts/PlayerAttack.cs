@@ -11,7 +11,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] InputActionReference _attack;
 
     private Coroutine _attackCoroutine;
-   [SerializeField] bool _isAttacking =false;
+   [SerializeField] bool _isAttacking;
     public bool IsAttacking => _isAttacking;
 
 
@@ -48,7 +48,8 @@ public class PlayerAttack : MonoBehaviour
     private void StopAttack(InputAction.CallbackContext context)
     {
         OnEndAttack?.Invoke();
-        StopCoroutine(_attackCoroutine);
         _isAttacking = false;
+        StopCoroutine(_attackCoroutine);
+        
     }
 }

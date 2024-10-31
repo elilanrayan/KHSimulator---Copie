@@ -20,11 +20,12 @@ public class HitEntity : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (_playerAttack.IsAttacking && other != player )
+        if ( _playerAttack.IsAttacking && other != player )
         {
-            if (other.gameObject.TryGetComponent<EntityHealth>(out EntityHealth entityHealth))
+            if (other.TryGetComponent<EntityHealth>(out EntityHealth entityHealth))
             {
                 entityHealth.TakeDamage(10);
+               
             }
 
         }
